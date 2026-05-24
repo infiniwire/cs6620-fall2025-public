@@ -10,7 +10,7 @@ import tempfile
 app = Flask(__name__)
 CORS(app)
 
-# Global variables for playlist management
+# Global variables for playlist management 
 current_directory = None
 current_playlist = [] # Stores full paths on server
 audio_file_map = {}  # Maps filename to full path for nested directories
