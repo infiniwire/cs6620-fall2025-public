@@ -144,7 +144,22 @@ def index():
     """
     Renders the main HTML page for the client-side audio player.
     """
-    return render_template('index.html') 
+    return '''
+    <h1>Hello from Automated CI/CD Pipeline!</h1>
+    <p>Version: 2.0 - Automated Deployment</p>
+    <p>Deployed via: GitHub Actions + AWS SSM</p>
+    <p>Assignment: Automated EC2 Deployment</p>
+    <p>Application: CS6620 Flask App</p>
+    '''
+
+@app.route('/health')
+def health():
+    return jsonify({
+        "status": "healthy",
+        "version": "2.0",
+        "deployment_method": "GitHub Actions + AWS SSM",
+        "assignment": "Automated EC2 Deployment"
+    })
 
 @app.route('/select_directory', methods=['POST'])
 def select_directory():
@@ -571,4 +586,4 @@ def auto_load_data():
 if __name__ == '__main__':
     # Auto-load CSV and audio files on startup
     auto_load_data()
-    app.run(debug=True, host='0.0.0.0', port=3000)
+    app.run(debug=True, host='0.0.0.0', port=5000)
